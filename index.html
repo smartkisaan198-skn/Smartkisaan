@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SmartKisaan - Smart Agriculture</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#f5faf5;
+    color:#173b20;
+}
+
+/* NAVBAR */
+nav{
+    background:#146b35;
+    color:white;
+    padding:15px 6%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+.logo{
+    font-size:25px;
+    font-weight:bold;
+}
+
+.logo span{
+    color:#b7ed72;
+}
+
+nav ul{
+    list-style:none;
+    display:flex;
+    gap:22px;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+.menu{
+    display:none;
+    font-size:25px;
+    cursor:pointer;
+}
+
+/* HERO */
+.hero{
+    min-height:80vh;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:70px 8%;
+    background:linear-gradient(135deg,#e5f7df,#ffffff);
+}
+
+.hero-text{
+    max-width:620px;
+}
+
+.hero h1{
+    font-size:50px;
+    margin-bottom:20px;
+    color:#145b2d;
+}
+
+.hero h1 span{
+    color:#4d9d32;
+}
+
+.hero p{
+    font-size:18px;
+    line-height:1.7;
+    color:#555;
+    margin-bottom:25px;
+}
+
+.hero-image{
+    font-size:150px;
+}
+
+.btn{
+    background:#258a43;
+    color:white;
+    border:none;
+    padding:13px 22px;
+    border-radius:8px;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+    margin:5px;
+}
+
+.btn:hover{
+    background:#125d2d;
+}
+
+/* COMMON */
+section{
+    padding:65px 7%;
+}
+
+.title{
+    text-align:center;
+    margin-bottom:40px;
+}
+
+.title h2{
+    font-size:34px;
+    color:#146b35;
+}
+
+.title p{
+    color:#666;
+    margin-top:8px;
+}
+
+/* FEATURES */
+.features{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:22px;
+}
+
+.card{
+    background:white;
+    padding:28px;
+    border-radius:14px;
+    text-align:center;
+    box-shadow:0 4px 18px rgba(0,0,0,.08);
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+}
+
+.card-icon{
+    font-size:45px;
+    margin-bottom:15px;
+}
+
+.card h3{
+    color:#176b36;
+    margin-bottom:10px;
+}
+
+.card p{
+    color:#666;
+    line-height:1.5;
+}
+
+/* CROP */
+.green-section{
+    background:#eaf7e5;
+}
+
+.box{
+    max-width:650px;
+    margin:auto;
+    background:white;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 4px 18px rgba(0,0,0,.08);
+}
+
+label{
+    display:block;
+    font-weight:bold;
+    margin:14px 0 6px;
+}
+
+select,input{
+    width:100%;
+    padding:12px;
+    border:1px solid #ccc;
+    border-radius:7px;
+    font-size:15px;
+}
+
+.result{
+    display:none;
+    margin-top:20px;
+    padding:18px;
+    background:#e0f5d8;
+    border-radius:10px;
+}
+
+/* WEATHER */
+.weather{
+    max-width:600px;
+    margin:auto;
+    text-align:center;
+    background:white;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 4px 18px rgba(0,0,0,.08);
+}
+
+.temperature{
+    font-size:55px;
+    color:#258a43;
+    margin:15px;
+}
+
+/* MARKET */
+.table-container{
+    overflow-x:auto;
+}
+
+table{
+    width:100%;
+    min-width:600px;
+    border-collapse:collapse;
+    background:white;
+    box-shadow:0 4px 18px rgba(0,0,0,.08);
+}
+
+th,td{
+    padding:15px;
+    text-align:center;
+    border-bottom:1px solid #ddd;
+}
+
+th{
+    background:#146b35;
+    color:white;
+}
+
+/* CHAT */
+.chat{
+    max-width:650px;
+    margin:auto;
+    background:white;
+    padding:25px;
+    border-radius:15px;
+    box-shadow:0 4px 18px rgba(0,0,0,.08);
+}
+
+.messages{
+    height:250px;
+    overflow-y:auto;
+    background:#f1f8f0;
+    padding:12px;
+    border-radius:10px;
+    margin-bottom:15px;
+}
+
+.msg{
+    padding:10px;
+    border-radius:8px;
+    margin:7px 0;
+}
+
+.bot{
+    background:#dcefd6;
+}
+
+.user{
+    background:#cce8fa;
+    text-align:right;
+}
+
+.chat-row{
+    display:flex;
+    gap:8px;
+}
+
+.chat-row input{
+    flex:1;
+}
+
+/* CONTACT */
+.contact{
+    background:#146b35;
+    color:white;
+    text-align:center;
+}
+
+.contact h2{
+    font-size:32px;
+    margin-bottom:15px;
+}
+
+.contact p{
+    margin:8px;
+}
+
+/* FOOTER */
+footer{
+    background:#0c4524;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+
+/* MOBILE */
+@media(max-width:800px){
+
+    nav ul{
+        display:none;
+        position:absolute;
+        top:60px;
+        left:0;
+        width:100%;
+        background:#146b35;
+        flex-direction:column;
+        text-align:center;
+        padding:20px;
+    }
+
+    nav ul.show{
+        display:flex;
+    }
+
+    .menu{
+        display:block;
+    }
+
+    .hero{
+        flex-direction:column;
+        text-align:center;
+        padding:60px 6%;
+    }
+
+    .hero h1{
+        font-size:38px;
+    }
+
+    .hero-image{
+        font-size:100px;
+        margin-top:30px;
+    }
+
+    .features{
+        grid-template-columns:1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav>
+
+<div class="logo">
+🌱 Smart<span>Kisaan</span>
+</div>
+
+<div class="menu" onclick="toggleMenu()">☰</div>
+
+<ul id="nav">
+
+<li><a href="#home">Home</a></li>
+<li><a href="#features">Features</a></li>
+<li><a href="#crop">Crop AI</a></li>
+<li><a href="#weather">Weather</a></li>
+<li><a href="#market">Market</a></li>
+<li><a href="#assistant">AI Assistant</a></li>
+
+</ul>
+
+</nav>
+
+
+<!-- HERO -->
+<section class="hero" id="home">
+
+<div class="hero-text">
+
+<h1>
+Smart Farming with
+<span>SmartKisaan</span>
+</h1>
+
+<p>
+SmartKisaan is a smart agriculture platform
+designed to help farmers make better decisions
+about crops, weather, irrigation, diseases and markets.
+</p>
+
+<a href="#features">
+<button class="btn">Explore Features</button>
+</a>
+
+<a href="#crop">
+<button class="btn">Try Crop AI</button>
+</a>
+
+</div>
+
+<div class="hero-image">
+🌾
+</div>
+
+</section>
+
+
+<!-- FEATURES -->
+<section id="features">
+
+<div class="title">
+
+<h2>🌱 Smart Agriculture Features</h2>
+
+<p>
+Technology for modern and smarter farming
+</p>
+
+</div>
+
+<div class="features">
+
+<div class="card">
+
+<div class="card-icon">🌾</div>
+
+<h3>Crop Recommendation</h3>
+
+<p>
+Get crop suggestions based on soil,
+season and water availability.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="card-icon">🦠</div>
+
+<h3>Disease Detection</h3>
+
+<p>
+Future AI feature for detecting
+crop diseases from leaf images.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="card-icon">🌦️</div>
+
+<h3>Weather</h3>
+
+<p>
+Weather information can help farmers
+plan irrigation and farm activities.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="card-icon">💰</div>
+
+<h3>Market Prices</h3>
+
+<p>
+View sample crop prices and market
+trends for better decisions.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="card-icon">📚</div>
+
+<h3>Farmer Learning</h3>
+
+<p>
+Learn modern farming and sustainable
+agriculture techniques.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="card-icon">🤖</div>
+
+<h3>AI Assistant</h3>
+
+<p>
+Ask farming questions and get
+instant demo guidance.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- CROP AI -->
+<section class="green-section" id="crop">
+
+<div class="title">
+
+<h2>🌱 Crop Recommendation AI</h2>
+
+<p>
+Select your conditions and get a crop recommendation
+</p>
+
+</div>
+
+<div class="box">
+
+<label>Soil Type</label>
+
+<select id="soil">
+
+<option value="loamy">Loamy</option>
+<option value="clay">Clay</option>
+<option value="sandy">Sandy</option>
+
+</select>
+
+
+<label>Season</label>
+
+<select id="season">
+
+<option value="kharif">Kharif</option>
+<option value="rabi">Rabi</option>
+<option value="zaid">Zaid</option>
+
+</select>
+
+
+<label>Water Availability</label>
+
+<select id="water">
+
+<option value="high">High</option>
+<option value="medium">Medium</option>
+<option value="low">Low</option>
+
+</select>
+
+
+<button class="btn" onclick="recommend()">
+🌱 Recommend Crop
+</button>
+
+<div class="result" id="cropResult"></div>
+
+</div>
+
+</section>
+
+
+<!-- WEATHER -->
+<section id="weather">
+
+<div class="title">
+
+<h2>🌦️ Weather Dashboard</h2>
+
+<p>Demo weather information</p>
+
+</div>
+
+<div class="weather">
+
+<h3>Today's Weather</h3>
+
+<div class="temperature">
+28°C
+</div>
+
+<p>☀️ Partly Cloudy</p>
+<p>💧 Humidity: 65%</p>
+<p>💨 Wind: 12 km/h</p>
+
+<button class="btn" onclick="weatherAdvice()">
+Get Farming Advice
+</button>
+
+<div class="result" id="weatherResult"></div>
+
+</div>
+
+</section>
+
+
+<!-- MARKET -->
+<section id="market" class="green-section">
+
+<div class="title">
+
+<h2>💰 Market Prices</h2>
+
+<p>Sample mandi price dashboard</p>
+
+</div>
+
+<div class="table-container">
+
+<table>
+
+<tr>
+<th>Crop</th>
+<th>Market</th>
+<th>Price / Quintal</th>
+<th>Trend</th>
+</tr>
+
+<tr>
+<td>Wheat</td>
+<td>Delhi</td>
+<td>₹2,450</td>
+<td>📈 Rising</td>
+</tr>
+
+<tr>
+<td>Rice</td>
+<td>Haryana</td>
+<td>₹2,800</td>
+<td>📊 Stable</td>
+</tr>
+
+<tr>
+<td>Tomato</td>
+<td>Delhi</td>
+<td>₹2,200</td>
+<td>📈 Rising</td>
+</tr>
+
+<tr>
+<td>Potato</td>
+<td>Uttar Pradesh</td>
+<td>₹1,700</td>
+<td>📉 Falling</td>
+</tr>
+
+</table>
+
+</div>
+
+</section>
+
+
+<!-- AI ASSISTANT -->
+<section id="assistant">
+
+<div class="title">
+
+<h2>🤖 SmartKisaan AI Assistant</h2>
+
+<p>
+Ask a simple farming question
+</p>
+
+</div>
+
+<div class="chat">
+
+<div class="messages" id="messages">
+
+<div class="msg bot">
+👋 Hello! I am SmartKisaan Assistant.
+Ask me about crops, irrigation,
+fertilizers or farming.
+</div>
+
+</div>
+
+<div class="chat-row">
+
+<input
+id="question"
+placeholder="Type your farming question..."
+onkeydown="if(event.key==='Enter') sendMessage()"
+>
+
+<button class="btn" onclick="sendMessage()">
+Send
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- LEARNING -->
+<section class="green-section">
+
+<div class="title">
+
+<h2>📚 Farmer Learning Center</h2>
+
+<p>Simple knowledge for better farming</p>
+
+</div>
+
+<div class="features">
+
+<div class="card">
+
+<div class="card-icon">💧</div>
+
+<h3>Smart Irrigation</h3>
+
+<p>
+Use water efficiently and check soil
+moisture before irrigation.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="card-icon">🌱</div>
+
+<h3>Soil Health</h3>
+
+<p>
+Regular soil testing can help guide
+crop and nutrient decisions.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="card-icon">♻️</div>
+
+<h3>Sustainable Farming</h3>
+
+<p>
+Use farming practices that protect
+soil and natural resources.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- CONTACT -->
+<section class="contact">
+
+<h2>🌱 SmartKisaan</h2>
+
+<p>
+Empowering Farmers Through Technology
+</p>
+
+<p>
+Agriculture • Food Tech • Rural Development
+</p>
+
+<button class="btn" onclick="contact()">
+Contact Us
+</button>
+
+</section>
+
+
+<footer>
+
+© 2026 SmartKisaan | Smart Agriculture Platform
+
+</footer>
+
+
+<script>
+
+/* MOBILE MENU */
+
+function toggleMenu(){
+
+document.getElementById("nav")
+.classList.toggle("show");
+
+}
+
+
+/* CROP RECOMMENDATION */
+
+function recommend(){
+
+let soil=document.getElementById("soil").value;
+
+let season=document.getElementById("season").value;
+
+let water=document.getElementById("water").value;
+
+let crop="";
+
+
+if(season==="kharif"){
+
+if(water==="high"){
+crop="🌾 Rice";
+}
+
+else if(soil==="sandy"){
+crop="🌽 Maize";
+}
+
+else{
+crop="🌱 Soybean";
+}
+
+}
+
+
+else if(season==="rabi"){
+
+if(soil==="loamy"){
+crop="🌾 Wheat";
+}
+
+else if(soil==="clay"){
+crop="🫘 Chickpea";
+}
+
+else{
+crop="🌱 Mustard";
+}
+
+}
+
+
+else{
+
+if(water==="high"){
+crop="🍉 Watermelon";
+}
+
+else{
+crop="🥒 Cucumber";
+}
+
+}
+
+
+let result=document.getElementById("cropResult");
+
+result.style.display="block";
+
+result.innerHTML=
+"<strong>Recommended Crop:</strong><br><br>"+
+crop+
+"<br><br>"+
+"Recommendation is based on the selected soil, season and water conditions.";
+
+}
+
+
+/* WEATHER */
+
+function weatherAdvice(){
+
+let result=document.getElementById("weatherResult");
+
+result.style.display="block";
+
+result.innerHTML=
+"💡 <strong>Farming Advice</strong><br><br>"+
+"Check soil moisture before irrigation and "+
+"check local weather conditions before spraying "+
+"or carrying out other sensitive farm activities.";
+
+}
+
+
+/* AI ASSISTANT */
+
+function sendMessage(){
+
+let input=document.getElementById("question");
+
+let text=input.value.trim();
+
+if(text===""){
+return;
+}
+
+
+let messages=document.getElementById("messages");
+
+
+let user=document.createElement("div");
+
+user.className="msg user";
+
+user.textContent=text;
+
+messages.appendChild(user);
+
+
+let answer=getAnswer(text);
+
+
+setTimeout(function(){
+
+let bot=document.createElement("div");
+
+bot.className="msg bot";
+
+bot.textContent=answer;
+
+messages.appendChild(bot);
+
+messages.scrollTop=messages.scrollHeight;
+
+},500);
+
+
+input.value="";
+
+}
+
+
+/* AI DEMO ANSWERS */
+
+function getAnswer(text){
+
+text=text.toLowerCase();
+
+
+if(text.includes("wheat") ||
+text.includes("गेहूं")){
+
+return "🌾 Wheat is generally grown during the cool season. Proper irrigation and regular crop monitoring are important.";
+
+}
+
+
+if(text.includes("rice") ||
+text.includes("चावल")){
+
+return "🌾 Rice needs suitable warm conditions and adequate water. Efficient water management is important.";
+
+}
+
+
+if(text.includes("water") ||
+text.includes("irrigation") ||
+text.includes("सिंचाई")){
+
+return "💧 Check soil moisture before irrigation and avoid unnecessary watering. Local weather and soil conditions should guide irrigation.";
+
+}
+
+
+if(text.includes("fertilizer") ||
+text.includes("खाद")){
+
+return "🌱 Fertilizer needs depend on the crop and soil. Soil testing is a useful basis for nutrient management.";
+
+}
+
+
+if(text.includes("disease") ||
+text.includes("बीमारी")){
+
+return "🦠 Look for unusual spots, discoloration or wilting and consult a local agriculture expert for diagnosis.";
+
+}
+
+
+return "🤖 I can help with general questions about crops, irrigation, soil and farming. For important crop decisions, verify the advice with a local agriculture expert.";
+
+}
+
+
+/* CONTACT */
+
+function contact(){
+
+alert(
+"🌱 Thank you for contacting SmartKisaan!\\n\\n"+
+"SmartKisaan is working to empower farmers through technology."
+);
+
+}
+
+</script>
+
+</body>
+</html>
