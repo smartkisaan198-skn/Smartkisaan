@@ -13,26 +13,21 @@
     font-family:Arial,sans-serif;
 }
 
-html{
-    scroll-behavior:smooth;
-}
-
 body{
-    background:#f5faf5;
-    color:#173b20;
+    background:#f4f8f3;
+    color:#222;
 }
 
-/* NAVBAR */
 nav{
-    background:#146b35;
+    background:#176b35;
     color:white;
-    padding:15px 6%;
+    padding:18px 7%;
     display:flex;
     justify-content:space-between;
     align-items:center;
     position:sticky;
     top:0;
-    z-index:1000;
+    z-index:100;
 }
 
 .logo{
@@ -40,318 +35,257 @@ nav{
     font-weight:bold;
 }
 
-.logo span{
-    color:#b7ed72;
-}
-
-nav ul{
-    list-style:none;
-    display:flex;
-    gap:22px;
-}
-
 nav a{
     color:white;
     text-decoration:none;
-    font-weight:bold;
+    margin-left:20px;
 }
 
-.menu{
-    display:none;
-    font-size:25px;
-    cursor:pointer;
-}
-
-/* HERO */
 .hero{
-    min-height:80vh;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    padding:70px 8%;
-    background:linear-gradient(135deg,#e5f7df,#ffffff);
-}
-
-.hero-text{
-    max-width:620px;
+    background:linear-gradient(135deg,#176b35,#2d9b50);
+    color:white;
+    padding:80px 7%;
+    text-align:center;
 }
 
 .hero h1{
-    font-size:50px;
-    margin-bottom:20px;
-    color:#145b2d;
-}
-
-.hero h1 span{
-    color:#4d9d32;
-}
-
-.hero p{
-    font-size:18px;
-    line-height:1.7;
-    color:#555;
-    margin-bottom:25px;
-}
-
-.hero-image{
-    font-size:150px;
-}
-
-.btn{
-    background:#258a43;
-    color:white;
-    border:none;
-    padding:13px 22px;
-    border-radius:8px;
-    font-size:16px;
-    font-weight:bold;
-    cursor:pointer;
-    margin:5px;
-}
-
-.btn:hover{
-    background:#125d2d;
-}
-
-/* COMMON */
-section{
-    padding:65px 7%;
-}
-
-.title{
-    text-align:center;
-    margin-bottom:40px;
-}
-
-.title h2{
-    font-size:34px;
-    color:#146b35;
-}
-
-.title p{
-    color:#666;
-    margin-top:8px;
-}
-
-/* FEATURES */
-.features{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:22px;
-}
-
-.card{
-    background:white;
-    padding:28px;
-    border-radius:14px;
-    text-align:center;
-    box-shadow:0 4px 18px rgba(0,0,0,.08);
-    transition:.3s;
-}
-
-.card:hover{
-    transform:translateY(-5px);
-}
-
-.card-icon{
     font-size:45px;
     margin-bottom:15px;
 }
 
+.hero p{
+    font-size:19px;
+    margin-bottom:25px;
+}
+
+.btn{
+    background:#ffb703;
+    border:none;
+    padding:13px 24px;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:16px;
+    font-weight:bold;
+}
+
+section{
+    padding:55px 7%;
+}
+
+.title{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.title h2{
+    color:#176b35;
+    font-size:32px;
+    margin-bottom:8px;
+}
+
+.dashboard{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:18px;
+}
+
+.card{
+    background:white;
+    padding:25px;
+    border-radius:12px;
+    box-shadow:0 4px 12px rgba(0,0,0,.08);
+    text-align:center;
+}
+
 .card h3{
-    color:#176b36;
+    color:#176b35;
     margin-bottom:10px;
 }
 
-.card p{
-    color:#666;
-    line-height:1.5;
+.features{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
 }
 
-/* CROP */
-.green-section{
-    background:#eaf7e5;
+.feature{
+    background:white;
+    padding:25px;
+    border-radius:12px;
+    box-shadow:0 4px 12px rgba(0,0,0,.08);
 }
 
-.box{
-    max-width:650px;
+.feature h3{
+    margin-bottom:10px;
+    color:#176b35;
+}
+
+.weather{
+    max-width:750px;
     margin:auto;
     background:white;
     padding:30px;
     border-radius:15px;
-    box-shadow:0 4px 18px rgba(0,0,0,.08);
+    box-shadow:0 4px 15px rgba(0,0,0,.1);
+    text-align:center;
 }
 
-label{
-    display:block;
-    font-weight:bold;
-    margin:14px 0 6px;
+.weather input,
+.weather select{
+    width:80%;
+    padding:14px;
+    border:1px solid #bbb;
+    border-radius:8px;
+    font-size:16px;
+    margin-bottom:15px;
 }
 
-select,input{
-    width:100%;
-    padding:12px;
-    border:1px solid #ccc;
-    border-radius:7px;
-    font-size:15px;
+.weather-result{
+    margin-top:25px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(130px,1fr));
+    gap:12px;
 }
 
-.result{
-    display:none;
-    margin-top:20px;
+.weather-box{
+    background:#eef8ef;
     padding:18px;
-    background:#e0f5d8;
     border-radius:10px;
 }
 
-/* WEATHER */
-.weather{
-    max-width:600px;
+.weather-box strong{
+    display:block;
+    font-size:22px;
+    margin-top:8px;
+    color:#176b35;
+}
+
+.loading{
+    margin-top:20px;
+    color:#176b35;
+    font-weight:bold;
+}
+
+.error{
+    margin-top:20px;
+    padding:15px;
+    background:#ffe8e8;
+    color:#b00020;
+    border-radius:8px;
+}
+
+.advice{
+    margin-top:20px;
+    padding:18px;
+    background:#fff7d6;
+    border-radius:10px;
+    text-align:left;
+}
+
+/* MANDI */
+.mandi-controls{
+    max-width:750px;
     margin:auto;
-    text-align:center;
     background:white;
-    padding:30px;
+    padding:25px;
     border-radius:15px;
-    box-shadow:0 4px 18px rgba(0,0,0,.08);
+    box-shadow:0 4px 15px rgba(0,0,0,.1);
+    text-align:center;
 }
 
-.temperature{
-    font-size:55px;
-    color:#258a43;
-    margin:15px;
+.mandi-controls select{
+    padding:13px;
+    width:45%;
+    border:1px solid #bbb;
+    border-radius:8px;
+    font-size:16px;
+    margin:5px;
 }
 
-/* MARKET */
-.table-container{
-    overflow-x:auto;
-}
-
-table{
+.mandi-table{
     width:100%;
-    min-width:600px;
+    margin-top:25px;
     border-collapse:collapse;
     background:white;
-    box-shadow:0 4px 18px rgba(0,0,0,.08);
+    border-radius:12px;
+    overflow:hidden;
+    box-shadow:0 4px 12px rgba(0,0,0,.08);
 }
 
-th,td{
+.mandi-table th,
+.mandi-table td{
     padding:15px;
     text-align:center;
     border-bottom:1px solid #ddd;
 }
 
-th{
-    background:#146b35;
+.mandi-table th{
+    background:#176b35;
     color:white;
 }
 
-/* CHAT */
-.chat{
-    max-width:650px;
-    margin:auto;
+.up{
+    color:green;
+    font-weight:bold;
+}
+
+.down{
+    color:#d00000;
+    font-weight:bold;
+}
+
+.market{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:20px;
+}
+
+.market-card{
     background:white;
     padding:25px;
-    border-radius:15px;
-    box-shadow:0 4px 18px rgba(0,0,0,.08);
-}
-
-.messages{
-    height:250px;
-    overflow-y:auto;
-    background:#f1f8f0;
-    padding:12px;
-    border-radius:10px;
-    margin-bottom:15px;
-}
-
-.msg{
-    padding:10px;
-    border-radius:8px;
-    margin:7px 0;
-}
-
-.bot{
-    background:#dcefd6;
-}
-
-.user{
-    background:#cce8fa;
-    text-align:right;
-}
-
-.chat-row{
-    display:flex;
-    gap:8px;
-}
-
-.chat-row input{
-    flex:1;
-}
-
-/* CONTACT */
-.contact{
-    background:#146b35;
-    color:white;
+    border-radius:12px;
     text-align:center;
+    box-shadow:0 4px 12px rgba(0,0,0,.08);
 }
 
-.contact h2{
-    font-size:32px;
-    margin-bottom:15px;
-}
-
-.contact p{
-    margin:8px;
-}
-
-/* FOOTER */
 footer{
-    background:#0c4524;
+    background:#123d22;
     color:white;
     text-align:center;
-    padding:20px;
+    padding:30px;
 }
 
-/* MOBILE */
-@media(max-width:800px){
+@media(max-width:700px){
 
-    nav ul{
-        display:none;
-        position:absolute;
-        top:60px;
-        left:0;
-        width:100%;
-        background:#146b35;
+    nav{
         flex-direction:column;
-        text-align:center;
-        padding:20px;
+        gap:12px;
     }
 
-    nav ul.show{
-        display:flex;
-    }
-
-    .menu{
-        display:block;
-    }
-
-    .hero{
-        flex-direction:column;
-        text-align:center;
-        padding:60px 6%;
+    nav a{
+        margin:5px;
     }
 
     .hero h1{
-        font-size:38px;
+        font-size:34px;
     }
 
-    .hero-image{
-        font-size:100px;
-        margin-top:30px;
+    .weather input,
+    .weather select{
+        width:100%;
     }
 
-    .features{
-        grid-template-columns:1fr;
+    .mandi-controls select{
+        width:100%;
+    }
+
+    .mandi-table{
+        font-size:13px;
+    }
+
+    .mandi-table th,
+    .mandi-table td{
+        padding:10px 5px;
     }
 }
 </style>
@@ -362,22 +296,15 @@ footer{
 <!-- NAVBAR -->
 <nav>
 
-<div class="logo">
-🌱 Smart<span>Kisaan</span>
+<div class="logo">🌾 SmartKisaan</div>
+
+<div>
+<a href="#home">Home</a>
+<a href="#dashboard">Dashboard</a>
+<a href="#weather">Weather</a>
+<a href="#mandi">Mandi Prices</a>
+<a href="#features">Features</a>
 </div>
-
-<div class="menu" onclick="toggleMenu()">☰</div>
-
-<ul id="nav">
-
-<li><a href="#home">Home</a></li>
-<li><a href="#features">Features</a></li>
-<li><a href="#crop">Crop AI</a></li>
-<li><a href="#weather">Weather</a></li>
-<li><a href="#market">Market</a></li>
-<li><a href="#assistant">AI Assistant</a></li>
-
-</ul>
 
 </nav>
 
@@ -385,31 +312,73 @@ footer{
 <!-- HERO -->
 <section class="hero" id="home">
 
-<div class="hero-text">
+<h1>🌾 SmartKisaan</h1>
 
-<h1>
-Smart Farming with
-<span>SmartKisaan</span>
-</h1>
+<p>Smart Technology for Smart Farming</p>
 
-<p>
-SmartKisaan is a smart agriculture platform
-designed to help farmers make better decisions
-about crops, weather, irrigation, diseases and markets.
-</p>
+<button class="btn"
+onclick="document.getElementById('weather').scrollIntoView()">
 
-<a href="#features">
-<button class="btn">Explore Features</button>
-</a>
+🌦️ Check Live Weather
 
-<a href="#crop">
-<button class="btn">Try Crop AI</button>
-</a>
+</button>
+
+</section>
+
+
+<!-- DASHBOARD -->
+<section id="dashboard">
+
+<div class="title">
+
+<h2>👨‍🌾 Farmer Dashboard</h2>
+
+<p>Your farming information at one place</p>
 
 </div>
 
-<div class="hero-image">
-🌾
+<div class="dashboard">
+
+<div class="card">
+<h3>👨‍🌾 Farmer</h3>
+<p>SmartKisaan User</p>
+</div>
+
+<div class="card">
+<h3>📍 Location</h3>
+<p id="dashLocation">Search City</p>
+</div>
+
+<div class="card">
+<h3>🌱 Crop</h3>
+<p>Wheat</p>
+</div>
+
+<div class="card">
+<h3>🌡️ Temperature</h3>
+<p id="dashTemp">-- °C</p>
+</div>
+
+<div class="card">
+<h3>💧 Humidity</h3>
+<p id="dashHumidity">-- %</p>
+</div>
+
+<div class="card">
+<h3>💨 Wind</h3>
+<p id="dashWind">-- km/h</p>
+</div>
+
+<div class="card">
+<h3>🌿 Crop Health</h3>
+<p>Good</p>
+</div>
+
+<div class="card">
+<h3>🚜 Farm Status</h3>
+<p>Active</p>
+</div>
+
 </div>
 
 </section>
@@ -419,98 +388,39 @@ about crops, weather, irrigation, diseases and markets.
 <section id="features">
 
 <div class="title">
-
-<h2>🌱 Smart Agriculture Features</h2>
-
-<p>
-Technology for modern and smarter farming
-</p>
-
+<h2>🚜 Smart Agriculture Features</h2>
 </div>
 
 <div class="features">
 
-<div class="card">
-
-<div class="card-icon">🌾</div>
-
-<h3>Crop Recommendation</h3>
-
-<p>
-Get crop suggestions based on soil,
-season and water availability.
-</p>
-
+<div class="feature">
+<h3>🌱 Crop Recommendation</h3>
+<p>Get suitable crop suggestions according to farming conditions.</p>
 </div>
 
-
-<div class="card">
-
-<div class="card-icon">🦠</div>
-
-<h3>Disease Detection</h3>
-
-<p>
-Future AI feature for detecting
-crop diseases from leaf images.
-</p>
-
+<div class="feature">
+<h3>🌦️ Live Weather</h3>
+<p>Check current weather conditions for your city.</p>
 </div>
 
-
-<div class="card">
-
-<div class="card-icon">🌦️</div>
-
-<h3>Weather</h3>
-
-<p>
-Weather information can help farmers
-plan irrigation and farm activities.
-</p>
-
+<div class="feature">
+<h3>💰 Mandi Prices</h3>
+<p>View agriculture market price information.</p>
 </div>
 
-
-<div class="card">
-
-<div class="card-icon">💰</div>
-
-<h3>Market Prices</h3>
-
-<p>
-View sample crop prices and market
-trends for better decisions.
-</p>
-
+<div class="feature">
+<h3>🦠 Disease Detection</h3>
+<p>Future AI feature for identifying crop diseases.</p>
 </div>
 
-
-<div class="card">
-
-<div class="card-icon">📚</div>
-
-<h3>Farmer Learning</h3>
-
-<p>
-Learn modern farming and sustainable
-agriculture techniques.
-</p>
-
+<div class="feature">
+<h3>🤖 AI Assistant</h3>
+<p>Get simple farming guidance.</p>
 </div>
 
-
-<div class="card">
-
-<div class="card-icon">🤖</div>
-
-<h3>AI Assistant</h3>
-
-<p>
-Ask farming questions and get
-instant demo guidance.
-</p>
-
+<div class="feature">
+<h3>📚 Learning Center</h3>
+<p>Learn modern farming techniques.</p>
 </div>
 
 </div>
@@ -518,150 +428,133 @@ instant demo guidance.
 </section>
 
 
-<!-- CROP AI -->
-<section class="green-section" id="crop">
-
-<div class="title">
-
-<h2>🌱 Crop Recommendation AI</h2>
-
-<p>
-Select your conditions and get a crop recommendation
-</p>
-
-</div>
-
-<div class="box">
-
-<label>Soil Type</label>
-
-<select id="soil">
-
-<option value="loamy">Loamy</option>
-<option value="clay">Clay</option>
-<option value="sandy">Sandy</option>
-
-</select>
-
-
-<label>Season</label>
-
-<select id="season">
-
-<option value="kharif">Kharif</option>
-<option value="rabi">Rabi</option>
-<option value="zaid">Zaid</option>
-
-</select>
-
-
-<label>Water Availability</label>
-
-<select id="water">
-
-<option value="high">High</option>
-<option value="medium">Medium</option>
-<option value="low">Low</option>
-
-</select>
-
-
-<button class="btn" onclick="recommend()">
-🌱 Recommend Crop
-</button>
-
-<div class="result" id="cropResult"></div>
-
-</div>
-
-</section>
-
-
-<!-- WEATHER -->
+<!-- LIVE WEATHER -->
 <section id="weather">
 
 <div class="title">
 
-<h2>🌦️ Weather Dashboard</h2>
+<h2>🌦️ Live Weather</h2>
 
-<p>Demo weather information</p>
+<p>Current weather information for your city</p>
 
 </div>
 
 <div class="weather">
 
-<h3>Today's Weather</h3>
+<h3>📍 Enter Your City</h3>
 
-<div class="temperature">
-28°C
-</div>
+<br>
 
-<p>☀️ Partly Cloudy</p>
-<p>💧 Humidity: 65%</p>
-<p>💨 Wind: 12 km/h</p>
+<input
+type="text"
+id="city"
+placeholder="Enter city e.g. Faridabad"
+value="Faridabad"
+onkeydown="if(event.key==='Enter') getWeather()"
+>
 
-<button class="btn" onclick="weatherAdvice()">
-Get Farming Advice
+<br>
+
+<button class="btn" onclick="getWeather()">
+🌦️ Get Live Weather
 </button>
 
-<div class="result" id="weatherResult"></div>
+<div id="weatherOutput"></div>
 
 </div>
 
 </section>
 
 
-<!-- MARKET -->
-<section id="market" class="green-section">
+<!-- MANDI PRICES -->
+<section id="mandi">
 
 <div class="title">
 
-<h2>💰 Market Prices</h2>
+<h2>💰 Smart Mandi Prices</h2>
 
-<p>Sample mandi price dashboard</p>
+<p>Compare agriculture commodity prices</p>
 
 </div>
 
-<div class="table-container">
+<div class="mandi-controls">
 
-<table>
+<select id="state">
 
-<tr>
-<th>Crop</th>
-<th>Market</th>
-<th>Price / Quintal</th>
-<th>Trend</th>
-</tr>
+<option value="Haryana">Haryana</option>
+<option value="Delhi">Delhi</option>
+<option value="Punjab">Punjab</option>
+<option value="Uttar Pradesh">Uttar Pradesh</option>
+<option value="Rajasthan">Rajasthan</option>
 
-<tr>
-<td>Wheat</td>
-<td>Delhi</td>
-<td>₹2,450</td>
-<td>📈 Rising</td>
-</tr>
+</select>
 
-<tr>
-<td>Rice</td>
-<td>Haryana</td>
-<td>₹2,800</td>
-<td>📊 Stable</td>
-</tr>
+<select id="commodity">
 
-<tr>
-<td>Tomato</td>
-<td>Delhi</td>
-<td>₹2,200</td>
-<td>📈 Rising</td>
-</tr>
+<option value="all">All Crops</option>
+<option value="wheat">Wheat</option>
+<option value="rice">Rice</option>
+<option value="maize">Maize</option>
+<option value="potato">Potato</option>
+<option value="onion">Onion</option>
 
-<tr>
-<td>Potato</td>
-<td>Uttar Pradesh</td>
-<td>₹1,700</td>
-<td>📉 Falling</td>
-</tr>
+</select>
 
-</table>
+<br><br>
+
+<button class="btn" onclick="showMandiPrices()">
+🔍 Check Mandi Prices
+</button>
+
+</div>
+
+
+<div id="mandiOutput"></div>
+
+</section>
+
+
+<!-- CROP RECOMMENDATION -->
+<section>
+
+<div class="title">
+<h2>🌱 Crop Recommendation AI</h2>
+</div>
+
+<div class="weather">
+
+<p>Enter your soil type to get a basic crop suggestion.</p>
+
+<br>
+
+<select id="soil">
+
+<option value="">Select Soil Type</option>
+
+<option value="loamy">
+Loamy Soil
+</option>
+
+<option value="clay">
+Clay Soil
+</option>
+
+<option value="sandy">
+Sandy Soil
+</option>
+
+</select>
+
+<br>
+
+<button class="btn"
+onclick="recommendCrop()">
+
+🌱 Recommend Crop
+
+</button>
+
+<div id="cropResult"></div>
 
 </div>
 
@@ -669,101 +562,66 @@ Get Farming Advice
 
 
 <!-- AI ASSISTANT -->
-<section id="assistant">
+<section>
 
 <div class="title">
-
 <h2>🤖 SmartKisaan AI Assistant</h2>
-
-<p>
-Ask a simple farming question
-</p>
-
 </div>
 
-<div class="chat">
+<div class="weather">
 
-<div class="messages" id="messages">
+<p>Ask a simple farming question.</p>
 
-<div class="msg bot">
-👋 Hello! I am SmartKisaan Assistant.
-Ask me about crops, irrigation,
-fertilizers or farming.
-</div>
-
-</div>
-
-<div class="chat-row">
+<br>
 
 <input
+type="text"
 id="question"
-placeholder="Type your farming question..."
-onkeydown="if(event.key==='Enter') sendMessage()"
+placeholder="Example: When should I water wheat?"
 >
 
-<button class="btn" onclick="sendMessage()">
-Send
+<br>
+
+<button class="btn"
+onclick="askAI()">
+
+🤖 Ask Assistant
+
 </button>
 
-</div>
+<div id="aiResult"></div>
 
 </div>
 
 </section>
 
 
-<!-- LEARNING -->
-<section class="green-section">
+<!-- LEARNING CENTER -->
+<section>
 
 <div class="title">
 
 <h2>📚 Farmer Learning Center</h2>
 
-<p>Simple knowledge for better farming</p>
+<p>Learn modern farming techniques</p>
 
 </div>
 
 <div class="features">
 
-<div class="card">
-
-<div class="card-icon">💧</div>
-
-<h3>Smart Irrigation</h3>
-
-<p>
-Use water efficiently and check soil
-moisture before irrigation.
-</p>
-
+<div class="feature">
+<h3>💧 Smart Irrigation</h3>
+<p>Learn how to reduce water wastage using efficient irrigation.</p>
 </div>
 
-
-<div class="card">
-
-<div class="card-icon">🌱</div>
-
-<h3>Soil Health</h3>
-
-<p>
-Regular soil testing can help guide
-crop and nutrient decisions.
-</p>
-
+<div class="feature">
+<h3>🌱 Soil Management</h3>
+<p>Learn basic methods of improving soil health.</p>
 </div>
 
-
-<div class="card">
-
-<div class="card-icon">♻️</div>
-
-<h3>Sustainable Farming</h3>
-
-<p>
-Use farming practices that protect
-soil and natural resources.
-</p>
-
+<div class="feature">
+<h3>🌾 Modern Farming</h3>
+<p>Learn about technology-based farming practices.</p>
 </div>
 
 </div>
@@ -771,246 +629,728 @@ soil and natural resources.
 </section>
 
 
-<!-- CONTACT -->
-<section class="contact">
-
-<h2>🌱 SmartKisaan</h2>
-
-<p>
-Empowering Farmers Through Technology
-</p>
-
-<p>
-Agriculture • Food Tech • Rural Development
-</p>
-
-<button class="btn" onclick="contact()">
-Contact Us
-</button>
-
-</section>
-
-
+<!-- FOOTER -->
 <footer>
 
-© 2026 SmartKisaan | Smart Agriculture Platform
+<h2>🌾 SmartKisaan</h2>
+
+<p>Smart Technology for Farmers</p>
+
+<br>
+
+<p>
+© 2026 SmartKisaan |
+Agriculture • Food Tech • Rural Development
+</p>
 
 </footer>
 
 
 <script>
 
-/* MOBILE MENU */
+/* =========================
+   LIVE WEATHER
+========================= */
 
-function toggleMenu(){
+function getWeatherDescription(code){
 
-document.getElementById("nav")
-.classList.toggle("show");
+const weatherCodes={
+
+0:"Clear Sky",
+1:"Mainly Clear",
+2:"Partly Cloudy",
+3:"Overcast",
+45:"Fog",
+48:"Depositing Rime Fog",
+51:"Light Drizzle",
+53:"Moderate Drizzle",
+55:"Dense Drizzle",
+61:"Slight Rain",
+63:"Moderate Rain",
+65:"Heavy Rain",
+71:"Slight Snow",
+73:"Moderate Snow",
+75:"Heavy Snow",
+80:"Slight Rain Showers",
+81:"Moderate Rain Showers",
+82:"Heavy Rain Showers",
+95:"Thunderstorm",
+96:"Thunderstorm with Hail",
+99:"Thunderstorm with Heavy Hail"
+
+};
+
+return weatherCodes[code] || "Unknown Weather";
 
 }
 
 
-/* CROP RECOMMENDATION */
+function getWeatherIcon(code){
 
-function recommend(){
+if(code===0) return "☀️";
 
-let soil=document.getElementById("soil").value;
+if(code===1 || code===2) return "🌤️";
 
-let season=document.getElementById("season").value;
+if(code===3) return "☁️";
 
-let water=document.getElementById("water").value;
+if(code>=45 && code<=48) return "🌫️";
+
+if(code>=51 && code<=67) return "🌧️";
+
+if(code>=71 && code<=86) return "❄️";
+
+if(code>=95) return "⛈️";
+
+return "🌦️";
+
+}
+
+
+function getFarmingAdvice(code,humidity,rain){
+
+if(rain>0)
+
+return "🌧️ <b>Farming Advice:</b><br>Rain is currently occurring. Avoid unnecessary irrigation and check field drainage.";
+
+if(code>=95)
+
+return "⛈️ <b>Farming Advice:</b><br>Thunderstorm conditions detected. Avoid spraying pesticides/fertilizers during this weather.";
+
+if(humidity>=80)
+
+return "💧 <b>Farming Advice:</b><br>Humidity is high. Monitor crops for fungal diseases and avoid excessive watering.";
+
+if(humidity<=35)
+
+return "🌱 <b>Farming Advice:</b><br>Humidity is low. Check soil moisture and consider irrigation if your crop needs it.";
+
+return "🌾 <b>Farming Advice:</b><br>Weather conditions look moderate. Continue normal crop monitoring.";
+
+}
+
+
+async function getWeather(){
+
+const cityInput=document.getElementById("city");
+
+const output=document.getElementById("weatherOutput");
+
+const city=cityInput.value.trim();
+
+if(city===""){
+
+output.innerHTML=
+"<div class='error'>⚠️ Please enter a city name.</div>";
+
+return;
+
+}
+
+output.innerHTML=
+"<p class='loading'>🔄 Getting live weather for "+city+"...</p>";
+
+try{
+
+const geoURL=
+"https://geocoding-api.open-meteo.com/v1/search?name="
++encodeURIComponent(city)
++"&count=1&language=en&format=json";
+
+const geoResponse=await fetch(geoURL);
+
+if(!geoResponse.ok)
+throw new Error("Location service error");
+
+const geoData=await geoResponse.json();
+
+if(!geoData.results){
+
+output.innerHTML=
+"<div class='error'>❌ City not found.</div>";
+
+return;
+
+}
+
+const location=geoData.results[0];
+
+const latitude=location.latitude;
+
+const longitude=location.longitude;
+
+const cityName=location.name;
+
+const country=location.country;
+
+
+const weatherURL=
+"https://api.open-meteo.com/v1/forecast?latitude="
++latitude
++"&longitude="
++longitude
++"&current=temperature_2m,relative_humidity_2m,apparent_temperature,precipitation,weather_code,wind_speed_10m&timezone=auto&temperature_unit=celsius&wind_speed_unit=kmh";
+
+
+const weatherResponse=await fetch(weatherURL);
+
+if(!weatherResponse.ok)
+throw new Error("Weather service error");
+
+const weatherData=await weatherResponse.json();
+
+const current=weatherData.current;
+
+const temperature=current.temperature_2m;
+
+const humidity=current.relative_humidity_2m;
+
+const feels=current.apparent_temperature;
+
+const rain=current.precipitation;
+
+const wind=current.wind_speed_10m;
+
+const code=current.weather_code;
+
+const condition=getWeatherDescription(code);
+
+const icon=getWeatherIcon(code);
+
+
+output.innerHTML=`
+
+<h2 style="margin-top:25px;color:#176b35;">
+
+${icon} ${cityName}, ${country}
+
+</h2>
+
+<p style="margin-top:8px;">
+Current Weather
+</p>
+
+<div class="weather-result">
+
+<div class="weather-box">
+🌡️ Temperature
+<strong>${temperature}°C</strong>
+</div>
+
+<div class="weather-box">
+🌤️ Condition
+<strong style="font-size:18px;">
+${condition}
+</strong>
+</div>
+
+<div class="weather-box">
+💧 Humidity
+<strong>${humidity}%</strong>
+</div>
+
+<div class="weather-box">
+🌡️ Feels Like
+<strong>${feels}°C</strong>
+</div>
+
+<div class="weather-box">
+🌧️ Rain
+<strong>${rain} mm</strong>
+</div>
+
+<div class="weather-box">
+💨 Wind
+<strong>${wind} km/h</strong>
+</div>
+
+</div>
+
+<div class="advice">
+
+${getFarmingAdvice(code,humidity,rain)}
+
+</div>
+`;
+
+
+document.getElementById("dashLocation")
+.textContent=cityName;
+
+document.getElementById("dashTemp")
+.textContent=temperature+"°C";
+
+document.getElementById("dashHumidity")
+.textContent=humidity+"%";
+
+document.getElementById("dashWind")
+.textContent=wind+" km/h";
+
+
+}catch(error){
+
+console.error(error);
+
+output.innerHTML=`
+
+<div class="error">
+
+❌ <b>Weather load नहीं हो पाया.</b>
+
+<br><br>
+
+Please check your internet connection and try again.
+
+<br><br>
+
+Page को refresh करके दोबारा search करें.
+
+</div>
+
+`;
+
+}
+
+}
+
+
+/* =========================
+   MANDI PRICES
+========================= */
+
+const mandiData={
+
+"Haryana":{
+
+wheat:{
+price:2400,
+trend:"+4.2%",
+direction:"up"
+},
+
+rice:{
+price:3100,
+trend:"+2.5%",
+direction:"up"
+},
+
+maize:{
+price:2150,
+trend:"-1.4%",
+direction:"down"
+},
+
+potato:{
+price:1600,
+trend:"+3.1%",
+direction:"up"
+},
+
+onion:{
+price:2200,
+trend:"+5.3%",
+direction:"up"
+}
+
+},
+
+"Delhi":{
+
+wheat:{
+price:2500,
+trend:"+3.5%",
+direction:"up"
+},
+
+rice:{
+price:3200,
+trend:"+2.1%",
+direction:"up"
+},
+
+maize:{
+price:2250,
+trend:"+1.2%",
+direction:"up"
+},
+
+potato:{
+price:1750,
+trend:"-2.0%",
+direction:"down"
+},
+
+onion:{
+price:2350,
+trend:"+4.5%",
+direction:"up"
+}
+
+},
+
+"Punjab":{
+
+wheat:{
+price:2450,
+trend:"+3.8%",
+direction:"up"
+},
+
+rice:{
+price:3050,
+trend:"+2.8%",
+direction:"up"
+},
+
+maize:{
+price:2200,
+trend:"-1.1%",
+direction:"down"
+},
+
+potato:{
+price:1550,
+trend:"+2.4%",
+direction:"up"
+},
+
+onion:{
+price:2100,
+trend:"+3.9%",
+direction:"up"
+}
+
+},
+
+"Uttar Pradesh":{
+
+wheat:{
+price:2350,
+trend:"+2.9%",
+direction:"up"
+},
+
+rice:{
+price:2950,
+trend:"+2.2%",
+direction:"up"
+},
+
+maize:{
+price:2050,
+trend:"+1.5%",
+direction:"up"
+},
+
+potato:{
+price:1500,
+trend:"-1.5%",
+direction:"down"
+},
+
+onion:{
+price:2000,
+trend:"+3.2%",
+direction:"up"
+}
+
+},
+
+"Rajasthan":{
+
+wheat:{
+price:2300,
+trend:"+2.4%",
+direction:"up"
+},
+
+rice:{
+price:2850,
+trend:"+1.8%",
+direction:"up"
+},
+
+maize:{
+price:2100,
+trend:"+2.1%",
+direction:"up"
+},
+
+potato:{
+price:1550,
+trend:"-1.2%",
+direction:"down"
+},
+
+onion:{
+price:2150,
+trend:"+4.0%",
+direction:"up"
+}
+
+}
+
+};
+
+
+const cropNames={
+
+wheat:"🌾 Wheat",
+
+rice:"🍚 Rice",
+
+maize:"🌽 Maize",
+
+potato:"🥔 Potato",
+
+onion:"🧅 Onion"
+
+};
+
+
+function showMandiPrices(){
+
+const state=document.getElementById("state").value;
+
+const commodity=document.getElementById("commodity").value;
+
+const output=document.getElementById("mandiOutput");
+
+const data=mandiData[state];
+
+let crops=[];
+
+
+if(commodity==="all"){
+
+crops=Object.keys(data);
+
+}else{
+
+crops=[commodity];
+
+}
+
+
+let table=`
+
+<div style="overflow-x:auto;margin-top:30px;">
+
+<table class="mandi-table">
+
+<tr>
+
+<th>🌱 Commodity</th>
+
+<th>📍 State</th>
+
+<th>💰 Price / Quintal</th>
+
+<th>📈 Trend</th>
+
+<th>📊 Status</th>
+
+</tr>
+
+`;
+
+
+crops.forEach(crop=>{
+
+const item=data[crop];
+
+table+=`
+
+<tr>
+
+<td>
+<b>${cropNames[crop]}</b>
+</td>
+
+<td>
+${state}
+</td>
+
+<td>
+<b>₹${item.price.toLocaleString('en-IN')}</b>
+</td>
+
+<td class="${item.direction}">
+${item.trend}
+</td>
+
+<td>
+${item.direction==="up"
+?"📈 Increasing"
+:"📉 Decreasing"}
+</td>
+
+</tr>
+
+`;
+
+});
+
+
+table+=`
+
+</table>
+
+</div>
+
+<div class="advice">
+
+⚠️ <b>Demo Data:</b>
+
+These prices are sample values for the SmartKisaan prototype.
+For a production version, connect the system to an official
+government mandi-data source/API before presenting them as live prices.
+
+</div>
+
+`;
+
+
+output.innerHTML=table;
+
+}
+
+
+/* =========================
+   CROP RECOMMENDATION
+========================= */
+
+function recommendCrop(){
+
+const soil=document.getElementById("soil").value;
+
+const result=document.getElementById("cropResult");
+
+if(soil===""){
+
+result.innerHTML=
+"<div class='advice'>⚠️ Please select soil type.</div>";
+
+return;
+
+}
 
 let crop="";
 
+if(soil==="loamy")
+crop="🌾 Wheat, Rice, Maize and Vegetables";
 
-if(season==="kharif"){
+else if(soil==="clay")
+crop="🌾 Rice and Wheat";
 
-if(water==="high"){
-crop="🌾 Rice";
-}
-
-else if(soil==="sandy"){
-crop="🌽 Maize";
-}
-
-else{
-crop="🌱 Soybean";
-}
-
-}
+else if(soil==="sandy")
+crop="🥜 Groundnut, Millet and Potato";
 
 
-else if(season==="rabi"){
+result.innerHTML=`
 
-if(soil==="loamy"){
-crop="🌾 Wheat";
-}
+<div class="advice">
 
-else if(soil==="clay"){
-crop="🫘 Chickpea";
-}
+<b>Recommended Crops:</b>
 
-else{
-crop="🌱 Mustard";
-}
+<br><br>
+
+${crop}
+
+</div>
+
+`;
 
 }
 
 
-else{
+/* =========================
+   AI ASSISTANT
+========================= */
 
-if(water==="high"){
-crop="🍉 Watermelon";
-}
+function askAI(){
 
-else{
-crop="🥒 Cucumber";
-}
+const question=
+document.getElementById("question")
+.value
+.toLowerCase()
+.trim();
 
-}
+const result=
+document.getElementById("aiResult");
 
-
-let result=document.getElementById("cropResult");
-
-result.style.display="block";
+if(question===""){
 
 result.innerHTML=
-"<strong>Recommended Crop:</strong><br><br>"+
-crop+
-"<br><br>"+
-"Recommendation is based on the selected soil, season and water conditions.";
+"<div class='advice'>⚠️ Please ask a question.</div>";
 
-}
-
-
-/* WEATHER */
-
-function weatherAdvice(){
-
-let result=document.getElementById("weatherResult");
-
-result.style.display="block";
-
-result.innerHTML=
-"💡 <strong>Farming Advice</strong><br><br>"+
-"Check soil moisture before irrigation and "+
-"check local weather conditions before spraying "+
-"or carrying out other sensitive farm activities.";
-
-}
-
-
-/* AI ASSISTANT */
-
-function sendMessage(){
-
-let input=document.getElementById("question");
-
-let text=input.value.trim();
-
-if(text===""){
 return;
-}
-
-
-let messages=document.getElementById("messages");
-
-
-let user=document.createElement("div");
-
-user.className="msg user";
-
-user.textContent=text;
-
-messages.appendChild(user);
-
-
-let answer=getAnswer(text);
-
-
-setTimeout(function(){
-
-let bot=document.createElement("div");
-
-bot.className="msg bot";
-
-bot.textContent=answer;
-
-messages.appendChild(bot);
-
-messages.scrollTop=messages.scrollHeight;
-
-},500);
-
-
-input.value="";
 
 }
 
-
-/* AI DEMO ANSWERS */
-
-function getAnswer(text){
-
-text=text.toLowerCase();
+let answer="";
 
 
-if(text.includes("wheat") ||
-text.includes("गेहूं")){
+if(
+question.includes("water") ||
+question.includes("irrigation")
+)
 
-return "🌾 Wheat is generally grown during the cool season. Proper irrigation and regular crop monitoring are important.";
+answer=
+"💧 Check soil moisture before irrigation. Avoid unnecessary watering.";
 
-}
+
+else if(question.includes("wheat"))
+
+answer=
+"🌾 Wheat generally needs proper irrigation, healthy soil and regular monitoring.";
 
 
-if(text.includes("rice") ||
-text.includes("चावल")){
+else if(question.includes("rain"))
 
-return "🌾 Rice needs suitable warm conditions and adequate water. Efficient water management is important.";
+answer=
+"🌧️ During heavy rain, check field drainage and avoid unnecessary irrigation.";
+
+
+else if(question.includes("disease"))
+
+answer=
+"🦠 Check leaves regularly for spots, discoloration or unusual growth and consult an agriculture expert if needed.";
+
+
+else
+
+answer=
+"🤖 SmartKisaan suggests checking your crop, soil moisture and current weather before making a farming decision.";
+
+
+result.innerHTML=`
+
+<div class="advice">
+
+<b>🤖 SmartKisaan Assistant:</b>
+
+<br><br>
+
+${answer}
+
+</div>
+
+`;
 
 }
 
 
-if(text.includes("water") ||
-text.includes("irrigation") ||
-text.includes("सिंचाई")){
+/* =========================
+   PAGE LOAD
+========================= */
 
-return "💧 Check soil moisture before irrigation and avoid unnecessary watering. Local weather and soil conditions should guide irrigation.";
+window.addEventListener("load",function(){
 
-}
+getWeather();
 
+showMandiPrices();
 
-if(text.includes("fertilizer") ||
-text.includes("खाद")){
-
-return "🌱 Fertilizer needs depend on the crop and soil. Soil testing is a useful basis for nutrient management.";
-
-}
-
-
-if(text.includes("disease") ||
-text.includes("बीमारी")){
-
-return "🦠 Look for unusual spots, discoloration or wilting and consult a local agriculture expert for diagnosis.";
-
-}
-
-
-return "🤖 I can help with general questions about crops, irrigation, soil and farming. For important crop decisions, verify the advice with a local agriculture expert.";
-
-}
-
-
-/* CONTACT */
-
-function contact(){
-
-alert(
-"🌱 Thank you for contacting SmartKisaan!\\n\\n"+
-"SmartKisaan is working to empower farmers through technology."
-);
-
-}
+});
 
 </script>
 
