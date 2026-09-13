@@ -19,15 +19,25 @@ body{
 }
 
 nav{
-    background:#176b35;
-    color:white;
-    padding:18px 7%;
-    display:flex;
+    background:#176b35 !important;
+    color:white !important;
+    padding:14px 5%;
+    display:flex !important;
     justify-content:space-between;
     align-items:center;
     position:sticky;
     top:0;
-    z-index:100;
+    z-index:9999;
+    width:100%;
+    min-height:65px;
+}
+
+.nav-links{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:8px;
 }
 
 .logo{
@@ -57,6 +67,9 @@ nav a{
     font-size:19px;
     margin-bottom:25px;
 }
+
+.language-btn{background:white;color:#176b35;border:none;padding:8px 14px;border-radius:8px;cursor:pointer;font-weight:bold;margin-left:18px;}
+.language-btn:hover{background:#f0f0f0;}
 
 .btn{
     background:#ffb703;
@@ -258,12 +271,24 @@ footer{
 @media(max-width:700px){
 
     nav{
-        flex-direction:column;
-        gap:12px;
+        flex-direction:column !important;
+        gap:10px;
+        padding:12px 3%;
+    }
+
+    .nav-links{
+        width:100%;
+        gap:4px;
     }
 
     nav a{
-        margin:5px;
+        margin:3px 5px;
+        font-size:14px;
+    }
+
+    .language-btn{
+        margin-left:5px;
+        margin-top:3px;
     }
 
     .hero h1{
@@ -298,12 +323,13 @@ footer{
 
 <div class="logo">🌾 SmartKisaan</div>
 
-<div>
+<div class="nav-links">
 <a href="#home">Home</a>
 <a href="#dashboard">Dashboard</a>
 <a href="#weather">Weather</a>
 <a href="#mandi">Mandi Prices</a>
 <a href="#features">Features</a>
+<button type="button" class="language-btn" id="languageBtn" onclick="toggleLanguage()">🌐 हिंदी</button>
 </div>
 
 </nav>
@@ -1352,7 +1378,14 @@ showMandiPrices();
 
 });
 
-</script>
 
-</body>
-</html>
+/* =========================
+   ENGLISH / HINDI LANGUAGE OPTION
+========================= */
+let smartKisaanLanguage = localStorage.getItem("smartKisaanLanguage") || "en";
+
+const languageMap = {
+"Home":"होम", "Dashboard":"डैशबोर्ड", "Weather":"मौसम", "Mandi Prices":"मंडी भाव", "Features":"फीचर्स",
+"Smart Technology for Smart Farming":"स्मार्ट खेती के लिए स्मार्ट तकनीक",
+"🌦️ Check Live Weather":"🌦️ लाइव मौसम देखें",
+"👨‍🌾 Farmer Dashboard":"👨‍🌾 किसान डैशबोर्ड", "Your
