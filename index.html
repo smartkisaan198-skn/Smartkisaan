@@ -19,25 +19,15 @@ body{
 }
 
 nav{
-    background:#176b35 !important;
-    color:white !important;
-    padding:14px 5%;
-    display:flex !important;
+    background:#176b35;
+    color:white;
+    padding:18px 7%;
+    display:flex;
     justify-content:space-between;
     align-items:center;
     position:sticky;
     top:0;
-    z-index:9999;
-    width:100%;
-    min-height:65px;
-}
-
-.nav-links{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    flex-wrap:wrap;
-    gap:8px;
+    z-index:100;
 }
 
 .logo{
@@ -271,24 +261,12 @@ footer{
 @media(max-width:700px){
 
     nav{
-        flex-direction:column !important;
-        gap:10px;
-        padding:12px 3%;
-    }
-
-    .nav-links{
-        width:100%;
-        gap:4px;
+        flex-direction:column;
+        gap:12px;
     }
 
     nav a{
-        margin:3px 5px;
-        font-size:14px;
-    }
-
-    .language-btn{
-        margin-left:5px;
-        margin-top:3px;
+        margin:5px;
     }
 
     .hero h1{
@@ -323,13 +301,13 @@ footer{
 
 <div class="logo">🌾 SmartKisaan</div>
 
-<div class="nav-links">
+<div>
 <a href="#home">Home</a>
 <a href="#dashboard">Dashboard</a>
 <a href="#weather">Weather</a>
 <a href="#mandi">Mandi Prices</a>
 <a href="#features">Features</a>
-<button type="button" class="language-btn" id="languageBtn" onclick="toggleLanguage()">🌐 हिंदी</button>
+<button class="language-btn" id="languageBtn" onclick="toggleLanguage()">🌐 हिंदी</button>
 </div>
 
 </nav>
@@ -1380,12 +1358,98 @@ showMandiPrices();
 
 
 /* =========================
-   ENGLISH / HINDI LANGUAGE OPTION
+   SAFE ENGLISH / HINDI LANGUAGE OPTION
+   This section changes ONLY UI labels.
+   It never walks through the whole page and never touches result containers.
 ========================= */
 let smartKisaanLanguage = localStorage.getItem("smartKisaanLanguage") || "en";
 
-const languageMap = {
-"Home":"होम", "Dashboard":"डैशबोर्ड", "Weather":"मौसम", "Mandi Prices":"मंडी भाव", "Features":"फीचर्स",
-"Smart Technology for Smart Farming":"स्मार्ट खेती के लिए स्मार्ट तकनीक",
-"🌦️ Check Live Weather":"🌦️ लाइव मौसम देखें",
-"👨‍🌾 Farmer Dashboard":"👨‍🌾 किसान डैशबोर्ड", "Your
+const langItems = [
+  ["nav a:nth-of-type(1)", "Home", "होम"],
+  ["nav a:nth-of-type(2)", "Dashboard", "डैशबोर्ड"],
+  ["nav a:nth-of-type(3)", "Weather", "मौसम"],
+  ["nav a:nth-of-type(4)", "Mandi Prices", "मंडी भाव"],
+  ["nav a:nth-of-type(5)", "Features", "फीचर्स"],
+  [".hero p", "Smart Technology for Smart Farming", "स्मार्ट खेती के लिए स्मार्ट तकनीक"],
+  [".hero .btn", "🌦️ Check Live Weather", "🌦️ लाइव मौसम देखें"],
+  ["#dashboard .title h2", "👨‍🌾 Farmer Dashboard", "👨‍🌾 किसान डैशबोर्ड"],
+  ["#dashboard .title p", "Your farming information at one place", "आपकी खेती की जानकारी एक जगह"],
+  ["#features .title h2", "🚜 Smart Agriculture Features", "🚜 स्मार्ट कृषि फीचर्स"],
+  ["#features .feature:nth-child(1) h3", "🌱 Crop Recommendation", "🌱 फसल सुझाव"],
+  ["#features .feature:nth-child(1) p", "Get suitable crop suggestions according to farming conditions.", "खेती की परिस्थितियों के अनुसार उपयुक्त फसल का सुझाव पाएं।"],
+  ["#features .feature:nth-child(2) h3", "🌦️ Live Weather", "🌦️ लाइव मौसम"],
+  ["#features .feature:nth-child(2) p", "Check current weather conditions for your city.", "अपने शहर का वर्तमान मौसम देखें।"],
+  ["#features .feature:nth-child(3) h3", "💰 Mandi Prices", "💰 मंडी भाव"],
+  ["#features .feature:nth-child(3) p", "View agriculture market price information.", "कृषि बाजार के भाव की जानकारी देखें।"],
+  ["#features .feature:nth-child(4) h3", "🦠 Disease Detection", "🦠 रोग पहचान"],
+  ["#features .feature:nth-child(4) p", "Future AI feature for identifying crop diseases.", "भविष्य में AI से फसल रोग पहचानने का फीचर।"],
+  ["#features .feature:nth-child(5) h3", "🤖 AI Assistant", "🤖 AI सहायक"],
+  ["#features .feature:nth-child(5) p", "Get simple farming guidance.", "सरल खेती संबंधी मार्गदर्शन पाएं।"],
+  ["#features .feature:nth-child(6) h3", "📚 Learning Center", "📚 लर्निंग सेंटर"],
+  ["#features .feature:nth-child(6) p", "Learn modern farming techniques.", "आधुनिक खेती की तकनीक सीखें।"],
+  ["#weather .title h2", "🌦️ Live Weather", "🌦️ लाइव मौसम"],
+  ["#weather .title p", "Current weather information for your city", "आपके शहर की वर्तमान मौसम जानकारी"],
+  ["#weather .weather h3", "📍 Enter Your City", "📍 अपना शहर डालें"],
+  ["#weather .weather .btn", "🌦️ Get Live Weather", "🌦️ लाइव मौसम प्राप्त करें"],
+  ["#mandi .title h2", "💰 Smart Mandi Prices", "💰 स्मार्ट मंडी भाव"],
+  ["#mandi .title p", "Compare agriculture commodity prices", "कृषि फसलों के भाव की तुलना करें"],
+  ["#mandi .mandi-controls .btn", "🔍 Check Mandi Prices", "🔍 मंडी भाव देखें"],
+  ["body > section:nth-of-type(5) .title h2", "🌱 Crop Recommendation AI", "🌱 फसल सुझाव AI"],
+  ["body > section:nth-of-type(5) .weather > p", "Enter your soil type to get a basic crop suggestion.", "मिट्टी का प्रकार चुनें और फसल का सुझाव पाएं।"],
+  ["#soil option[value='']", "Select Soil Type", "मिट्टी का प्रकार चुनें"],
+  ["#soil option[value='loamy']", "Loamy Soil", "दोमट मिट्टी"],
+  ["#soil option[value='clay']", "Clay Soil", "चिकनी मिट्टी"],
+  ["#soil option[value='sandy']", "Sandy Soil", "रेतीली मिट्टी"],
+  ["#soil + br + .btn", "🌱 Recommend Crop", "🌱 फसल सुझाएं"],
+  ["body > section:nth-of-type(6) .title h2", "🤖 SmartKisaan AI Assistant", "🤖 SmartKisaan AI सहायक"],
+  ["body > section:nth-of-type(6) .weather > p", "Ask a simple farming question.", "खेती से जुड़ा सरल सवाल पूछें।"],
+  ["body > section:nth-of-type(6) .weather .btn", "🤖 Ask Assistant", "🤖 सहायक से पूछें"],
+  ["body > section:nth-of-type(7) .title h2", "📚 Farmer Learning Center", "📚 किसान लर्निंग सेंटर"],
+  ["body > section:nth-of-type(7) .title p", "Learn modern farming techniques", "आधुनिक खेती की तकनीक सीखें"],
+  ["footer p:nth-of-type(1)", "Smart Technology for Farmers", "किसानों के लिए स्मार्ट तकनीक"]
+];
+
+function setupLanguageItems(){
+  langItems.forEach(function(item){
+    const el=document.querySelector(item[0]);
+    if(el){
+      el.dataset.en=item[1];
+      el.dataset.hi=item[2];
+    }
+  });
+}
+
+function applySmartKisaanLanguage(){
+  const hindi=smartKisaanLanguage==="hi";
+  document.documentElement.lang=hindi?"hi":"en";
+
+  document.querySelectorAll("[data-en][data-hi]").forEach(function(el){
+    el.textContent=hindi?el.dataset.hi:el.dataset.en;
+  });
+
+  const city=document.getElementById("city");
+  if(city) city.placeholder=hindi?"शहर डालें जैसे Faridabad":"Enter city e.g. Faridabad";
+
+  const question=document.getElementById("question");
+  if(question) question.placeholder=hindi?"उदाहरण: गेहूं में पानी कब देना चाहिए?":"Example: When should I water wheat?";
+
+  const languageBtn=document.getElementById("languageBtn");
+  if(languageBtn) languageBtn.textContent=hindi?"🌐 English":"🌐 हिंदी";
+}
+
+function toggleLanguage(){
+  smartKisaanLanguage=smartKisaanLanguage==="en"?"hi":"en";
+  localStorage.setItem("smartKisaanLanguage",smartKisaanLanguage);
+  applySmartKisaanLanguage();
+}
+
+/* Apply language after the page is ready, without changing any app functions. */
+window.addEventListener("DOMContentLoaded",function(){
+  setupLanguageItems();
+  applySmartKisaanLanguage();
+});
+
+</script>
+
+</body>
+</html>
